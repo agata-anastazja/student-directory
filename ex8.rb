@@ -36,6 +36,7 @@ $cohorts = ["January",
    students
  end
 
+
  def print_header
    line_width = 80
    puts "The students of Villains Academy".center(line_width)
@@ -50,7 +51,7 @@ $cohorts = ["January",
      index += 1
     end
    end
- end
+
 
 def students_starting_with(students)
   puts "Print students' names starting with letter ..."
@@ -73,9 +74,26 @@ def print_footer(names)
   end
 end
 
- students = input_students
- print_header
- prints(students)
-# students_starting_with(students)
- print_footer(students)
- puts
+def interactive_menu
+  students = []
+  loop do
+    puts "1. input the students"
+    puts "2. Show the students"
+    puts "9. Exit"
+    selection = gets.chomp
+    case selection
+    when "1"
+      students = input_students
+    when "2"
+      print_header
+      prints(students)
+      print_footer(students)
+    when "9"
+      exit
+    else
+      puts "I don't know what you mean, try again"
+    end
+  end
+end
+
+interactive_menu
