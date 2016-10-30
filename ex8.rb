@@ -3,8 +3,17 @@
    puts "To finish, just hit return twice"
    students = []
    name = gets.chomp
+   # Collect extra info about students
+   # hobbies, country of birth, height
+   puts "What are the student's hobbies?"
+   hobbies = gets.chomp
+   puts "What's the student's country of birth?"
+   country = gets.chomp
+   puts "What's the student's height?"
+   height = gets.chomp
    while !name.empty? do
-     students << {name:name, cohort: :november}
+     students << {name:name, cohort: :november, hobbies:hobbies,
+                  country_of_birth:country, height:height}
      puts "Now we have #{students.count} students"
      name = gets.chomp
    end
