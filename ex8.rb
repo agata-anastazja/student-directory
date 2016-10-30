@@ -16,7 +16,7 @@ $cohorts = ["January",
    puts "Enter the names of the students"
    puts "To finish, just hit return twice"
    students = []
-   name = gets.chomp
+   name = gets.delete("\n")
    while !name.empty? do
      cohort = ""
      while !$cohorts.include?(cohort.capitalize)
@@ -29,6 +29,9 @@ $cohorts = ["January",
      students << {name:name, cohort: cohort.to_sym}
      puts "Now we have #{students.count} students"
      name = gets.chomp
+   end
+   if students == []
+     exit
    end
    students
  end
@@ -64,7 +67,7 @@ end
 def print_footer(names)
   line_width = 80
   if names.length == 1
-    print "Overall, we have #{names.count} great student ".center(line_width)
+    print "Overall, we have 1 great student ".center(line_width)
   else
     print "Overall, we have #{names.count} great students ".center(line_width)
   end
