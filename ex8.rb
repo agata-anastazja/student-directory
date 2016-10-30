@@ -1,18 +1,34 @@
+$cohorts = ["January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "November",
+          "October",
+          "December"
+      ]
+
  def input_students
    puts "Enter the names of the students"
    puts "To finish, just hit return twice"
    students = []
    name = gets.chomp
    while !name.empty? do
-     #puts "What are the student's hobbies?"
-     #hobbies = gets.chomp
-     #puts "What's the student's country of birth?"
-     #country = gets.chomp
-     #puts "What's the student's height?"
-     #height = gets.chomp
-     #students << {name:name, cohort: :november, hobbies:hobbies,
-     #            country_of_birth:country, height:height}
-     students << {name:name, cohort: :november}
+   	cohort = 0
+     while !$cohorts.include?(cohort)
+     puts "If student is in November cohort, press enter.
+Otherwise enter the month of their cohort."
+     cohort = gets.chomp
+     if cohort == ""
+     	cohort = "November"
+     end
+     end
+
+     students << {name:name, cohort: cohort.to_sym}
      puts "Now we have #{students.count} students"
      name = gets.chomp
    end
