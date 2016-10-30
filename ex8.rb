@@ -4,16 +4,15 @@
    students = []
    name = gets.chomp
    while !name.empty? do
-     # Collect extra info about students
-     # hobbies, country of birth, height
-     puts "What are the student's hobbies?"
-     hobbies = gets.chomp
-     puts "What's the student's country of birth?"
-     country = gets.chomp
-     puts "What's the student's height?"
-     height = gets.chomp
-     students << {name:name, cohort: :november, hobbies:hobbies,
-                  country_of_birth:country, height:height}
+     #puts "What are the student's hobbies?"
+     #hobbies = gets.chomp
+     #puts "What's the student's country of birth?"
+     #country = gets.chomp
+     #puts "What's the student's height?"
+     #height = gets.chomp
+     #students << {name:name, cohort: :november, hobbies:hobbies,
+     #            country_of_birth:country, height:height}
+     students << {name:name, cohort: :november}
      puts "Now we have #{students.count} students"
      name = gets.chomp
    end
@@ -21,8 +20,9 @@
  end
 
  def print_header
-   puts "The students of Villains Academy"
-   puts "--------------------"
+   line_width = 80
+   puts "The students of Villains Academy".center(line_width)
+   puts "--------------------".center(line_width)
  end
 
  def prints(names)
@@ -46,7 +46,8 @@ end
 
 
 def print_footer(names)
-  print "Overall, we have #{names.count} great students "
+  line_width = 80
+  print "Overall, we have #{names.count} great students ".center(line_width)
 end
 
  students = input_students
