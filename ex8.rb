@@ -63,7 +63,11 @@ end
 
 def print_footer(names)
   line_width = 80
-  print "Overall, we have #{names.count} great students ".center(line_width)
+  if names.length == 1
+    print "Overall, we have #{names.count} great student ".center(line_width)
+  else
+    print "Overall, we have #{names.count} great students ".center(line_width)
+  end
 end
 
  students = input_students
