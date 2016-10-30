@@ -17,8 +17,10 @@
  end
 
  def prints(names)
-     names.each_with_index do |student, index|
-     puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
+  index = 0
+  while index < names.length do
+    puts "#{index + 1}. #{names[index][:name]} (#{names[index][:cohort]} cohort)"
+    index += 1
    end
  end
 
