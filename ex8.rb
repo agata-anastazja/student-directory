@@ -10,7 +10,7 @@ $cohorts = ["January",
           "November",
           "October",
           "December"
-      ]
+]
 
  def input_students
    puts "Enter the names of the students"
@@ -18,16 +18,14 @@ $cohorts = ["January",
    students = []
    name = gets.chomp
    while !name.empty? do
-   	cohort = 0
-     while !$cohorts.include?(cohort)
-     puts "If student is in November cohort, press enter.
-Otherwise enter the month of their cohort."
-     cohort = gets.chomp
-     if cohort == ""
-     	cohort = "November"
+     cohort = ""
+     while !$cohorts.include?(cohort.capitalize)
+        puts "If student is in November cohort, press enter. /n Otherwise enter the month of their cohort."
+        cohort = gets.chomp
+        if cohort == ""
+     	    cohort = "November"
+        end
      end
-     end
-
      students << {name:name, cohort: cohort.to_sym}
      puts "Now we have #{students.count} students"
      name = gets.chomp
@@ -42,10 +40,12 @@ Otherwise enter the month of their cohort."
  end
 
  def prints(names)
-  index = 0
-  while index < names.length do
-    puts "#{index + 1}. #{names[index][:name]} (#{names[index][:cohort]} cohort)"
-    index += 1
+  names =	names.sort_by { |entry| entry[:cohort]}
+ 	index = 0
+   while index < names.length do
+     puts "#{index + 1}. #{names[index][:name]} (#{names[index][:cohort]} cohort)"
+     index += 1
+    end
    end
  end
 
